@@ -13,7 +13,10 @@ namespace ClienteSimple
         public Form1()
         {
             InitializeComponent();
-
+            btnDate.Tag = "date";
+            btnTime.Tag = "time";
+            btnAll.Tag = "all";
+            btnClose.Tag = "close";
         }
         IPAddress ip = IPAddress.Parse("127.0.0.1");
         int puerto = 31416;
@@ -36,14 +39,17 @@ namespace ClienteSimple
                         sw.AutoFlush = true;
 
                         string msg = await sr.ReadLineAsync();
-                        if (txtContrasena.Text == null)
+
+                        if (comando.Equals("close "))
                         {
-                            return "La contraseña no puede estar vacía";
+                            await sw.WriteLineAsync(comando + txtContrasena.Text);
+
                         }
                         else
                         {
-                            await sw.WriteLineAsync(comando + txtContrasena.Text);
+                            await sw.WriteLineAsync(comando);
                         }
+
 
                         msg = await sr.ReadLineAsync();
                         return msg;
@@ -61,33 +67,45 @@ namespace ClienteSimple
         }
 
 
-        private async void btnDate_Click(object sender, EventArgs e)
-        {
-            lblContrasena.Text = await EnvioYRecepcionAsync("date");
 
-        }
-
-        private async void btnTime_Click(object sender, EventArgs e)
+        private async void botones_Click(object sender, EventArgs e)
         {
-            lblContrasena.Text = await EnvioYRecepcionAsync("time");
-        }
+            if (sender is Button btn)
+            {
+                if (btn.Tag.ToString().Equals("date"))
+                {
+                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
+                }
 
-        private async void btnAll_Click(object sender, EventArgs e)
-        {
-            lblContrasena.Text = await EnvioYRecepcionAsync("all");
-        }
+                if (btn.Tag.ToString().Equals("time"))
+                {
+                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
+                }
 
-        private async void btnClose_Click(object sender, EventArgs e)
-        {
-            lblContrasena.Text = await EnvioYRecepcionAsync("close ");
+                if (btn.Tag.ToString().Equals("all"))
+                {
+                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
+                }
+
+                if (btn.Tag.ToString().Equals("close"))
+                {
+
+                    lblContrasena.Text = await EnvioYRecepcionAsync("close ");
+
+                }
+            }
         }
 
         private void btnServ_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
-            form2.ShowDialog();
-            ip = form2.Ip;
-            puerto = form2.Puerto;
+            
+            if (form2.ShowDialog() == DialogResult.OK)
+            {
+                ip = form2.Ip;
+                puerto = form2.Puerto;
+
+            }
         }
     }
 }

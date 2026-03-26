@@ -31,10 +31,11 @@ namespace ClienteSimple
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.txtIP = new System.Windows.Forms.TextBox();
             this.txtPort = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.lblPuerto = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,23 +55,23 @@ namespace ClienteSimple
             this.txtPort.Size = new System.Drawing.Size(125, 22);
             this.txtPort.TabIndex = 1;
             // 
-            // label1
+            // lblDireccion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "IP:";
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(128, 88);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(22, 16);
+            this.lblDireccion.TabIndex = 2;
+            this.lblDireccion.Text = "IP:";
             // 
-            // label2
+            // lblPuerto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "PUERTO:";
+            this.lblPuerto.AutoSize = true;
+            this.lblPuerto.Location = new System.Drawing.Point(128, 130);
+            this.lblPuerto.Name = "lblPuerto";
+            this.lblPuerto.Size = new System.Drawing.Size(67, 16);
+            this.lblPuerto.TabIndex = 3;
+            this.lblPuerto.Text = "PUERTO:";
             // 
             // button1
             // 
@@ -89,13 +90,14 @@ namespace ClienteSimple
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 360);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPuerto);
+            this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.txtIP);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Introduce datos";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,8 +107,8 @@ namespace ClienteSimple
 
         private TextBox txtIP;
         private TextBox txtPort;
-        private Label label1;
-        private Label label2;
+        private Label lblDireccion;
+        private Label lblPuerto;
         private Button button1;
 
     }

@@ -22,9 +22,37 @@ namespace ClienteSimple
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ip = IPAddress.Parse(txtIP.Text);
-            Puerto = int.Parse(txtPort.Text);
-            this.Close();
+            bool seEnvia = true;
+
+            if (IPAddress.TryParse(txtIP.Text, out IPAddress ipParse) && !txtIP.Text.Equals(""))
+            {
+                Ip = ipParse;
+                lblDireccion.Text = "IP:";
+            }
+            else
+            {
+                lblDireccion.Text = "No es una IP válida";
+                seEnvia = false;
+            }
+
+            if (int.TryParse(txtPort.Text, out int portParse))
+            {
+                Puerto = portParse;
+                lblPuerto.Text = "PUERTO:";
+            }
+            else
+            {
+                lblPuerto.Text = "No es un puerto válido";
+                seEnvia = false;
+            }
+
+            if (seEnvia)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+
+            }
+
         }
     }
 }

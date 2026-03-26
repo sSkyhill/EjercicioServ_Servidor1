@@ -108,23 +108,23 @@ namespace Servidor
                                 sw.WriteLine($"Fecha y hora {msg}");
 
                             }
-                            string linea = "";
-                            string directorio = Environment.GetEnvironmentVariable("PROGRAMDATA");
-                            string ruta = directorio + "\\contraseñas.txt";
-                            using (StreamReader sw2 = new StreamReader(ruta))
-                                try
-                                {
-                                    linea = sw2.ReadLine();
-                                }
-                                catch (IOException)
-                                {
-                                    Console.WriteLine("Error leyendo el archivo de contraseñas");
-                                }
                             if (msg.StartsWith("close "))
                             {
+                                string linea = "";
+                                string directorio = Environment.GetEnvironmentVariable("PROGRAMDATA");
+                                string ruta = directorio + "\\contraseñas.txt";
+                                using (StreamReader sw2 = new StreamReader(ruta))
+                                    try
+                                    {
+                                        linea = sw2.ReadLine();
+                                    }
+                                    catch (IOException)
+                                    {
+                                        Console.WriteLine("Error leyendo el archivo de contraseñas");
+                                    }
                                 if (msg.Trim().Contains(linea))
                                 {
-
+                                    
                                     s.Close();
                                 }
                                 else if (msg.Trim().Length <= 5)

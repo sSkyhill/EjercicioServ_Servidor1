@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnDate = new System.Windows.Forms.Button();
             this.btnTime = new System.Windows.Forms.Button();
             this.btnAll = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@
             this.btnDate.TabIndex = 0;
             this.btnDate.Text = "date";
             this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
+            this.btnDate.Click += new System.EventHandler(this.botones_Click);
             // 
             // btnTime
             // 
@@ -55,7 +56,7 @@
             this.btnTime.TabIndex = 1;
             this.btnTime.Text = "time";
             this.btnTime.UseVisualStyleBackColor = true;
-            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
+            this.btnTime.Click += new System.EventHandler(this.botones_Click);
             // 
             // btnAll
             // 
@@ -65,7 +66,7 @@
             this.btnAll.TabIndex = 2;
             this.btnAll.Text = "all";
             this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            this.btnAll.Click += new System.EventHandler(this.botones_Click);
             // 
             // btnClose
             // 
@@ -75,7 +76,7 @@
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.botones_Click);
             // 
             // txtContrasena
             // 
@@ -115,8 +116,9 @@
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.btnTime);
             this.Controls.Add(this.btnDate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Cliente simple";
             this.ResumeLayout(false);
             this.PerformLayout();
 
