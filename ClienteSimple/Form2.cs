@@ -46,10 +46,10 @@ namespace ClienteSimple
                 seEnvia = false;
             }
 
-            if (seEnvia)
+            if (!seEnvia)
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                this.DialogResult = DialogResult.None;
+                
 
             }
 

@@ -16,7 +16,7 @@ namespace ClienteSimple
             btnDate.Tag = "date";
             btnTime.Tag = "time";
             btnAll.Tag = "all";
-            btnClose.Tag = "close";
+            btnClose.Tag = "close ";
         }
         IPAddress ip = IPAddress.Parse("127.0.0.1");
         int puerto = 31416;
@@ -72,27 +72,7 @@ namespace ClienteSimple
         {
             if (sender is Button btn)
             {
-                if (btn.Tag.ToString().Equals("date"))
-                {
                     lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
-                }
-
-                if (btn.Tag.ToString().Equals("time"))
-                {
-                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
-                }
-
-                if (btn.Tag.ToString().Equals("all"))
-                {
-                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
-                }
-
-                if (btn.Tag.ToString().Equals("close"))
-                {
-
-                    lblContrasena.Text = await EnvioYRecepcionAsync("close ");
-
-                }
             }
         }
 

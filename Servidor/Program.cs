@@ -124,7 +124,7 @@ namespace Servidor
                                     }
                                 if (msg.Trim().Contains(linea))
                                 {
-                                    
+                                    sw.WriteLine("Servidor cerrado");
                                     s.Close();
                                 }
                                 else if (msg.Trim().Length <= 5)
