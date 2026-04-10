@@ -49,7 +49,7 @@ namespace ClienteSimple
             if (!seEnvia)
             {
                 this.DialogResult = DialogResult.None;
-                
+
 
             }
 

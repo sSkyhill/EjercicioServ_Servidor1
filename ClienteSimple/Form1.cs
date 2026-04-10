@@ -72,14 +72,14 @@ namespace ClienteSimple
         {
             if (sender is Button btn)
             {
-                    lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
+                lblContrasena.Text = await EnvioYRecepcionAsync(btn.Tag.ToString());
             }
         }
 
         private void btnServ_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
-            
+
             if (form2.ShowDialog() == DialogResult.OK)
             {
                 ip = form2.Ip;
